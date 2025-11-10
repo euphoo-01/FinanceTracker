@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Red+Rose:wght@300..700&display=swap");
+
+:root {
+	--bg-color: rgb(13, 13, 13);
+	--outline-color: rgb(84, 84, 84);
+	--text-color: rgb(255, 255, 255);
+	--accent-color: rgb(255, 128, 0);
+	--accent-bg-color: rgb(22, 0, 44);
+	--accent-bg-outline-color: rgba(69, 27, 110, 0.8);
+}

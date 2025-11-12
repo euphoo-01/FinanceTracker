@@ -1,6 +1,6 @@
-import { lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { PAGE_ENDPOINTS } from "./modules/navigation/types.ts";
+import { PAGE_ENDPOINTS } from "./navigation/types.ts";
 import "./App.css";
 
 import Layout from "./common/Layout.tsx";

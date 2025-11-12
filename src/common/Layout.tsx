@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import styles from "./Layout.module.css";
-import { PAGE_ENDPOINTS } from "../modules/navigation/types";
+import { PAGE_ENDPOINTS } from "../navigation/types";
 
 import HistoryIcon from "../assets/history.svg?react";
 import ChartIcon from "../assets/chart.svg?react";

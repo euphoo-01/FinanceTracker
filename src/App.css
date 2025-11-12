@@ -1,10 +1,71 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Red+Rose:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
-	--bg-color: rgb(13, 13, 13);
+	--bg-color: rgb(7, 0, 15);
 	--outline-color: rgb(84, 84, 84);
 	--text-color: rgb(255, 255, 255);
 	--accent-color: rgb(255, 128, 0);
 	--accent-bg-color: rgb(22, 0, 44);
 	--accent-bg-outline-color: rgba(69, 27, 110, 0.8);
+}
+
+/* Основная раскладка страницы описана в Layout.module.css */
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: "Dela Gothic One";
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+p,
+input,
+select,
+button,
+ul,
+li {
+	font-family: "Open Sans";
+	color: var(--text-color);
+	font-size: 16px;
+}
+
+input,
+select,
+button {
+	background-color: var(--bg-color);
+	border: solid 1px var(--outline-color);
+	border-radius: 16px;
+	min-height: 36px;
+	min-width: 240px;
+	padding: 8px 16px;
+	margin: 8px;
+	transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+button:hover {
+	border: 1px solid var(--accent-color);
+}
+
+button:active {
+	opacity: 0.5;
+}
+
+input:focus,
+select:focus {
+	outline: none;
+	border: 1px solid var(--accent-color);
 }

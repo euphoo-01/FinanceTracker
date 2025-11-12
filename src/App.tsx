@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { PAGE_ENDPOINTS } from "./modules/navigation/types.ts";
 import "./App.css";
 
 import Layout from "./common/Layout.tsx";
@@ -17,9 +18,12 @@ function App() {
 	return (
 		<Routes>
 			<Route path="/" element={<Layout />}>
-				<Route index element={<Navigate to="/transactions" replace />} />
 				<Route
-					path="/history"
+					index
+					element={<Navigate to={PAGE_ENDPOINTS.transactions} replace />}
+				/>
+				<Route
+					path={PAGE_ENDPOINTS.history}
 					element={
 						<Suspense fallback={<p>Loading...</p>}>
 							<TransactionsPage />
@@ -27,14 +31,14 @@ function App() {
 					}
 				/>
 				<Route
-					path="/transactions"
+					path={PAGE_ENDPOINTS.transactions}
 					element={
 						<Suspense fallback={<p>Loading...</p>}>
 							<AddTransactionsPage />
 						</Suspense>
 					}
 				/>
-				{/* <Route path="/statistics" element={<StatisticsPage />} /> */}
+				<Route path={PAGE_ENDPOINTS.statistics} element={<></>} />
 			</Route>
 		</Routes>
 	);

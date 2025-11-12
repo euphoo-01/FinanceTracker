@@ -8,7 +8,7 @@
 	text-align: center;
 }
 
-.addForm div {
+.formContent {
 	border-radius: 16px;
 	border: 1px var(--outline-color) solid;
 	padding: 32px;
@@ -16,4 +16,17 @@
 	flex-flow: column nowrap;
 	width: 500px;
 	align-self: center;
+}
+
+.submitButtonsContainer {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.accept {
+	border: 1px var(--accept-color) solid;
+}
+
+.decline {
+	border: 1px var(--decline-color) solid;
 }

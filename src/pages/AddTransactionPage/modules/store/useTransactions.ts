@@ -2,6 +2,8 @@ import { create } from "zustand";
 import type { TransactionsState, Transaction, Filter } from "./types";
 import { devtools } from "zustand/middleware";
 
+//TODO: Обернуть в persistence
+
 const useTransactions = create<TransactionsState>()(
 	devtools((set, get) => ({
 		_transactions: [],

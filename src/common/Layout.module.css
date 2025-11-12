@@ -1,3 +1,11 @@
+.layoutContainer {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
 header {
 	display: flex;
 	flex-flow: row wrap;
@@ -11,16 +19,22 @@ header {
 
 body {
 	background-color: var(--bg-color);
+	display: flex;
+	flex-flow: column nowrap;
+	min-height: 100vh;
 }
 
 main {
+	flex: 1 0 auto;
 	margin: 32px auto;
 	padding: 0px 5%;
+	max-width: 100%;
+	width: 100%;
 }
 
 footer {
-	position: absolute;
-	bottom: 0px;
+	margin-top: auto;
+	flex-shrink: 0;
 }
 
 menu ul {

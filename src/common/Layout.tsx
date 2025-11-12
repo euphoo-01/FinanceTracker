@@ -10,8 +10,8 @@ import AddIcon from "../assets/money-add.svg?react";
 const Layout: React.FC = () => {
 	const navigate = useNavigate();
 	return (
-		<>
-			<header>
+		<div className={styles.layoutContainer}>
+			<header className={styles.header}>
 				<h1>FinanceTracker</h1>
 				<menu className={styles.menu}>
 					<ul>
@@ -28,17 +28,19 @@ const Layout: React.FC = () => {
 				</menu>
 			</header>
 
-			<main>
+			<main className={styles.main}>
 				<Suspense fallback={<p>Загрузка...</p>}>
 					<Outlet></Outlet>
 				</Suspense>
 			</main>
 
-			<footer className={styles.footerContainer}>
-				<h3>FinanceTracker</h3>
-				<p>Твой личный финансовый помощник. All rights reserved.</p>
+			<footer className={styles.footer}>
+				<div className={styles.footerContainer}>
+					<h3>FinanceTracker</h3>
+					<p>Твой личный финансовый помощник. All rights reserved.</p>
+				</div>
 			</footer>
-		</>
+		</div>
 	);
 };
 

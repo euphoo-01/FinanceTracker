@@ -1,0 +1,11 @@
+.transaction {
+	background-color: var(--accent-bg-color);
+	padding: 16px;
+	border-radius: 16px;
+	border: 1px var(--accent-bg-outline-color) solid;
+}
+
+.transaction hr {
+	border-radius: 16px;
+	color: var(--accent-bg-outline-color);
+}

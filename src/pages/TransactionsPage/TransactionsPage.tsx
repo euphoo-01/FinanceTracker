@@ -4,7 +4,7 @@ import TransactionsList from "./modules/TransactionsList/TransactionsList";
 const TransactionsPage: React.FC = () => {
 	return (
 		<section>
-			<h1>История транзакций</h1>
+			<h1 align="center">История транзакций</h1>
 			<TransactionsList></TransactionsList>
 		</section>
 	);

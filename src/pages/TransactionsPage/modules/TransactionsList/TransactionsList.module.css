@@ -1,0 +1,6 @@
+.transactionsContainer {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 16px;
+	margin-top: 32px;
+}

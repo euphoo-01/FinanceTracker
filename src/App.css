@@ -7,6 +7,8 @@
 	--accent-color: rgb(255, 128, 0);
 	--accent-bg-color: rgb(22, 0, 44);
 	--accent-bg-outline-color: rgba(69, 27, 110, 0.8);
+	--accept-color: rgb(45, 122, 23);
+	--decline-color: rgb(125, 32, 32);
 }
 
 /* Основная раскладка страницы описана в Layout.module.css */
@@ -50,7 +52,7 @@ button {
 	border: solid 1px var(--outline-color);
 	border-radius: 16px;
 	min-height: 36px;
-	min-width: 240px;
+	min-width: 200px;
 	padding: 8px 16px;
 	margin: 8px;
 	transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);

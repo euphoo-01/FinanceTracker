@@ -1,4 +1,4 @@
-type TransactionType = "income" | "outcome";
+export type TransactionType = "income" | "outcome";
 
 export const CURRENCIES = {
 	BYN: "BYN",

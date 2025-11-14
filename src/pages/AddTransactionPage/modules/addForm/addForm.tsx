@@ -9,10 +9,11 @@ import { type TransactionType } from "../../../AddTransactionPage";
 import styles from "./addForm.module.css";
 
 //TODO: Валидация полей формы
-//TODO: Логика взаимодействия со счетом
+//TODO: Категории трат
+//TODO: Конвертация валют (парсинг реального курса НБРБ)
 
 const AddForm: React.FC = () => {
-	const { getBalances } = useBalance();
+	const { getBalances, changeBalanceMoney } = useBalance();
 
 	const { updateField, getForm } = useTransactionForm();
 
@@ -27,6 +28,12 @@ const AddForm: React.FC = () => {
 		const formData = getForm() as Transaction;
 		if (formData) {
 			addTransaction(formData);
+			if (formData.fromBalance) {
+				changeBalanceMoney(
+					formData.fromBalance,
+					formData.type === "income" ? formData.value : 0 - formData.value // Если трата, то число отрицательное
+				);
+			}
 		}
 	};
 

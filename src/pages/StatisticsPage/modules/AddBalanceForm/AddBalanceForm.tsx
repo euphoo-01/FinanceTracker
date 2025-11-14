@@ -45,7 +45,7 @@ const AddBalanceForm: React.FC<{
 			>
 				<h3>Добавить счёт</h3>
 				<input
-					placeholder="Введите имя счёта:"
+					placeholder="Имя счёта"
 					onChange={(e) => updateField("name", e.target.value)}
 				/>
 				<select
@@ -62,7 +62,7 @@ const AddBalanceForm: React.FC<{
 					))}
 				</select>
 				<input
-					placeholder="Введите стартовый баланс:"
+					placeholder="Стартовый баланс"
 					onChange={(e) => updateField("value", Number(e.target.value))}
 				/>
 				<button>Добавить счёт</button>

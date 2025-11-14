@@ -1,0 +1,6 @@
+.balanceContainer {
+	border-bottom: 1px solid var(--outline-color);
+	border-radius: 16px;
+	padding: 8px 16px;
+
+}

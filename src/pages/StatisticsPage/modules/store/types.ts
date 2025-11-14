@@ -13,4 +13,5 @@ export interface BalanceState {
 	delBalance: (id: string) => void;
 	editBalance: (id: string, newBalance: Omit<Balance, "id">) => void;
 	getBalances: () => Balance[];
+	changeBalanceMoney: (id: string, value: number) => void;
 }

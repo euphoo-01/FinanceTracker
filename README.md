@@ -1,5 +1,7 @@
 # Finance Tracker
 
+_Исходные файлы проекта находятся в папке src/_
+
 ### Краткое описание:
 
 Пет-проект, финансовый помощник. Можно отслеживать собственные расходы и просматривать наглядно на инфографике.
@@ -18,11 +20,11 @@
 - TypeScript
 - React
 - Zustand
-- Nivo
+- Recharts
 
 ### Приёмы:
 
-- Custom Hooks
+- Custom Hooks (useForm, useBalance, useTransaction, useNotification)
 - Простая модульная архитектура
 - CSS Modules
 - Lazy loading

@@ -1,0 +1,14 @@
+.listContainer {
+	display: none;
+	flex-flow: column nowrap;
+	justify-content: center;
+	gap: 16px;
+	position: absolute;
+	z-index: 1;
+	right: 16px;
+	top: 16px;
+}
+
+.visible {
+	display: flex;
+}

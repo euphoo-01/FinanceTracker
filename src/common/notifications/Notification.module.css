@@ -1,0 +1,52 @@
+@keyframes slideUpToDown {
+	0% {
+		transform: translateX(-25%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.notificationContainer {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+
+	background-color: var(--bg-color);
+	border-radius: 16px;
+
+	padding: 16px;
+	gap: 8px;
+	min-width: 300px;
+}
+
+.reveal {
+	animation: slideUpToDown 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.disappear {
+	animation: fadeOut 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.info {
+	border: 1px var(--outline-color) solid;
+}
+
+.warning {
+	border: 1px var(--accept-color) solid;
+}
+
+.error {
+	border: 1px var(--decline-color) solid;
+}

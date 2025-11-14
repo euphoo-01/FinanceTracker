@@ -5,6 +5,7 @@ import type { Balance } from "../store/types";
 import useBalance from "../store/useBalance";
 import { CURRENCIES } from "../../../AddTransactionPage";
 import { nanoid } from "nanoid";
+import { useNotification } from "../../../../common/notifications";
 
 const AddBalanceForm: React.FC<{
 	isModal: boolean | undefined;
@@ -12,6 +13,7 @@ const AddBalanceForm: React.FC<{
 }> = ({ isModal, setIsModal }) => {
 	const { updateField, getForm, resetForm } = useBalanceForm();
 	const { getBalances, addBalance } = useBalance();
+	const { addNotification } = useNotification();
 	const currentBalances = getBalances();
 
 	const id = nanoid();
@@ -25,8 +27,9 @@ const AddBalanceForm: React.FC<{
 				addBalance(formData as Balance);
 				resetForm();
 				setIsModal(!isModal);
+				addNotification("Новый счёт", "Новый счёт добавлен успешно", "info", 3);
 			} else {
-				console.error("Такой баланс уже существует");
+				addNotification("Ошибка", "Такой счёт уже существует", "error", 3);
 			}
 	};
 	return (

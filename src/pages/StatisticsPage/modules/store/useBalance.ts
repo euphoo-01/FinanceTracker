@@ -2,8 +2,6 @@ import { create } from "zustand";
 import type { Balance, BalanceState } from "./types";
 import { devtools, persist } from "zustand/middleware";
 
-//TODO: Обернуть в persistence
-
 const useBalance = create<BalanceState>()(
 	devtools(
 		persist(

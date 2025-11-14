@@ -5,6 +5,7 @@ import useTransactionForm from "../store/transactionsFormStore";
 import useTransactions from "../store/useTransactions";
 import { nanoid } from "nanoid";
 import { type TransactionType } from "../../../AddTransactionPage";
+import { useNotification } from "../../../../common/notifications";
 
 import styles from "./addForm.module.css";
 
@@ -13,6 +14,7 @@ import styles from "./addForm.module.css";
 //TODO: Конвертация валют (парсинг реального курса НБРБ)
 
 const AddForm: React.FC = () => {
+	const { addNotification } = useNotification();
 	const { getBalances, changeBalanceMoney } = useBalance();
 
 	const { updateField, getForm } = useTransactionForm();
@@ -27,11 +29,17 @@ const AddForm: React.FC = () => {
 		updateField("type", type);
 		const formData = getForm() as Transaction;
 		if (formData) {
-			addTransaction(formData);
 			if (formData.fromBalance) {
 				changeBalanceMoney(
 					formData.fromBalance,
 					formData.type === "income" ? formData.value : 0 - formData.value // Если трата, то число отрицательное
+				);
+				addTransaction(formData);
+				addNotification(
+					formData.description,
+					"Транзакция добавлена успешно.",
+					"info",
+					3
 				);
 			}
 		}

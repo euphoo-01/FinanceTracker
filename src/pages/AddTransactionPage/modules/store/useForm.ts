@@ -1,32 +1,25 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import type { Transaction } from "./types";
 
-type useFormState = {
-	formData: Partial<Transaction>;
-	updateField: <K extends keyof Transaction>(
-		field: K,
-		value: Transaction[K]
-	) => void;
-	getForm: () => Transaction | undefined;
+type UseFormState<T> = {
+	formData: Partial<T>;
+	updateField: <K extends keyof T>(field: K, value: T[K]) => void;
+	getForm: () => Partial<T>;
 	resetForm: () => void;
 };
 
-const useForm = create<useFormState>()(
-	devtools((set, get) => ({
-		formData: undefined,
-		updateField: (field, value) =>
-			set((state) => ({ formData: { ...state.formData, [field]: value } })),
-		getForm: () => {
-			const { formData } = get();
-			if (formData) {
-				return formData;
-			}
-			return undefined;
-		},
-
-		resetForm: () => {},
-	}))
-);
+const useForm = <T>() =>
+	create<UseFormState<T>>()(
+		devtools((set, get) => ({
+			formData: {},
+			updateField: (field, value) => {
+				set((state) => ({
+					formData: { ...state.formData, [field]: value },
+				}));
+			},
+			getForm: () => get().formData,
+			resetForm: () => set({ formData: {} }),
+		}))
+	);
 
 export default useForm;

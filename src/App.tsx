@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { PAGE_ENDPOINTS } from "./navigation/types.ts";
 import "./App.css";
@@ -10,9 +10,9 @@ const TransactionsPage = lazy(
 const AddTransactionsPage = lazy(
 	() => import("./pages/AddTransactionPage/AddTransactionPage.tsx")
 );
-// const StatisticsPage = lazy(
-// 	() => import("./pages/StatisticsPage/StatisticsPage.tsx")
-// );
+const StatisticsPage = lazy(
+	() => import("./pages/StatisticsPage/StatisticsPage.tsx")
+);
 
 function App() {
 	return (
@@ -38,7 +38,7 @@ function App() {
 						</Suspense>
 					}
 				/>
-				<Route path={PAGE_ENDPOINTS.statistics} element={<></>} />
+				<Route path={PAGE_ENDPOINTS.statistics} element={<StatisticsPage />} />
 			</Route>
 		</Routes>
 	);

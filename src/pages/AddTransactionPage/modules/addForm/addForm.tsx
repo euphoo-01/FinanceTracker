@@ -1,35 +1,43 @@
 import * as React from "react";
-import { CURRENCIES } from "../store/types";
+import { CURRENCIES, Transaction } from "../store/types";
 import { useBalance } from "../../../StatisticsPage";
 import useForm from "../store/useForm";
 import useTransactions from "../store/useTransactions";
-import { useId } from "react";
+import { nanoid } from "nanoid";
 import { type TransactionType } from "../../../AddTransactionPage";
 
 import styles from "./addForm.module.css";
 
-//TODO: Debounce на input'ы
+//TODO: Валидация полей формы
+//TODO: Логика взаимодействия со счетом
 
 const AddForm: React.FC = () => {
 	const { getBalances } = useBalance();
-	const { updateField, getForm } = useForm();
+
+	const useTransactionsForm = useForm<Transaction>();
+	const { updateField, getForm } = useTransactionsForm();
+
 	const { addTransaction } = useTransactions();
-	const id = useId();
+	const id = nanoid();
 
 	const handleSubmit = (e: React.FormEvent, type: TransactionType) => {
 		e.preventDefault();
 		updateField("id", id);
 		updateField("date", new Date(Date.now()));
 		updateField("type", type);
-		const formData = getForm();
+		const formData = getForm() as Transaction;
 		if (formData) {
 			addTransaction(formData);
-			console.log(formData);
 		}
 	};
 
+	React.useEffect(() => {
+		const formData = getForm();
+		console.log("Form state updated:", formData);
+	}, [getForm]);
+
 	return (
-		<form onSubmit={(e) => e.preventDefault} className={styles.addForm}>
+		<form className={styles.addForm}>
 			<h1 className={styles.formTitle}>Добавить транзакцию</h1>
 			<div className={styles.formContent}>
 				<input

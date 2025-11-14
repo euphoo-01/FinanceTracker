@@ -1,0 +1,22 @@
+.dashboardContainer {
+	border: 1px var(--accent-bg-outline-color) solid;
+	border-radius: 16px;
+	background-color: var(--accent-bg-color);
+
+	display: flex;
+	flex-flow: row wrap;
+
+	min-height: 50vh;
+}
+.dashboardBalances {
+	display: flex;
+	gap: 16px;
+	flex-direction: column;
+
+	flex: 0.25;
+	padding: 16px;
+	margin: 16px;
+
+	border: 1px var(--accent-bg-outline-color) solid;
+	border-radius: 16px;
+}

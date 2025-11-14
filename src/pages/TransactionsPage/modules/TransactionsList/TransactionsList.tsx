@@ -5,9 +5,11 @@ import styles from "./TransactionsList.module.css";
 
 const TransactionsList: React.FC = () => {
 	const { getFilteredTransactions } = useTransactions();
+	const filteredTransactions = getFilteredTransactions();
 	return (
 		<section className={styles.transactionsContainer}>
-			{getFilteredTransactions().map((transaction) => (
+			{!filteredTransactions.length && <p>История транзакций пуста</p>}
+			{filteredTransactions.map((transaction) => (
 				<TransactionItem
 					key={transaction.id}
 					transaction={transaction}

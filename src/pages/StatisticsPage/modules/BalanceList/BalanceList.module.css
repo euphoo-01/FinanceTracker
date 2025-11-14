@@ -1,0 +1,16 @@
+.icon {
+	height: 24px;
+	stroke: var(--text-color);
+	transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+	margin: 0 auto;
+	width: 100%;
+}
+
+.icon:hover {
+	stroke: var(--accent-color);
+	cursor: pointer;
+}
+
+.icon:active {
+	scale: 0.8;
+}

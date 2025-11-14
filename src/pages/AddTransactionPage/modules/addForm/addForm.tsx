@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CURRENCIES, Transaction } from "../store/types";
 import { useBalance } from "../../../StatisticsPage";
-import useForm from "../store/useForm";
+import useTransactionForm from "../store/transactionsFormStore";
 import useTransactions from "../store/useTransactions";
 import { nanoid } from "nanoid";
 import { type TransactionType } from "../../../AddTransactionPage";
@@ -14,8 +14,7 @@ import styles from "./addForm.module.css";
 const AddForm: React.FC = () => {
 	const { getBalances } = useBalance();
 
-	const useTransactionsForm = useForm<Transaction>();
-	const { updateField, getForm } = useTransactionsForm();
+	const { updateField, getForm } = useTransactionForm();
 
 	const { addTransaction } = useTransactions();
 	const id = nanoid();

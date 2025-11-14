@@ -1,6 +1,6 @@
 import * as React from "react";
 import styles from "./AddBalanceForm.module.css";
-import { useForm } from "../../../AddTransactionPage";
+import { useBalanceForm } from "../store/balanceFormStore";
 import type { Balance } from "../store/types";
 import useBalance from "../store/useBalance";
 import { CURRENCIES } from "../../../AddTransactionPage";
@@ -10,7 +10,6 @@ const AddBalanceForm: React.FC<{
 	isModal: boolean | undefined;
 	setIsModal: (val: boolean) => void;
 }> = ({ isModal, setIsModal }) => {
-	const useBalanceForm = useForm<Balance>();
 	const { updateField, getForm, resetForm } = useBalanceForm();
 	const { getBalances, addBalance } = useBalance();
 	const currentBalances = getBalances();
